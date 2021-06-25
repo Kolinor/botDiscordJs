@@ -5,6 +5,10 @@ const fs = require('fs');
 
 client.commands = new Discord.Collection();
 
+const options = {
+   voiceConnection: null
+};
+
 const commandFiles = fs
     .readdirSync("./commands")
     .filter((file) => file.endsWith(".js"));
@@ -35,10 +39,14 @@ client.on('message', message => {
     if (!command) return;
 
     try {
-        command.execute(message, args);
+        command.execute(message, args, options);
     } catch (error) {
         console.error(error);
     }
+});
+
+process.on('exit', ()=> {
+    if (options.voiceConnection) options.voiceConnection.disconnect();
 });
 
 client.login(configBot.botToken);

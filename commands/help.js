@@ -5,7 +5,7 @@ module.exports = {
     name: "help",
     description: "Permet d'avoir le détail des commandes disponibles",
     category: "utilitaire",
-    execute(message, args) {
+    async execute(message, args) {
         const { commands } = message.client;
 
         if (!args.length) {
@@ -18,6 +18,16 @@ module.exports = {
                         value: `\`${
                             commands
                                 .filter((cmd) => cmd.category == "utilitaire")
+                                .map((cmd) => cmd.name)
+                                .join("`\n`") || "Aucune commande trouvé"
+                        }\``,
+                    },
+                ], [
+                    {
+                        name: "Modération",
+                        value: `\`${
+                            commands
+                                .filter((cmd) => cmd.category == "moderation")
                                 .map((cmd) => cmd.name)
                                 .join("`\n`") || "Aucune commande trouvé"
                         }\``,
