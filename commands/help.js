@@ -17,7 +17,7 @@ module.exports = {
                         name: "Utilitaire",
                         value: `\`${
                             commands
-                                .filter((cmd) => cmd.category == "utilitaire")
+                                .filter((cmd) => cmd.category === "utilitaire")
                                 .map((cmd) => cmd.name)
                                 .join("`\n`") || "Aucune commande trouvé"
                         }\``,
@@ -27,7 +27,17 @@ module.exports = {
                         name: "Modération",
                         value: `\`${
                             commands
-                                .filter((cmd) => cmd.category == "moderation")
+                                .filter((cmd) => cmd.category === "moderation")
+                                .map((cmd) => cmd.name)
+                                .join("`\n`") || "Aucune commande trouvé"
+                        }\``,
+                    },
+                ], [
+                    {
+                        name: "Fun",
+                        value: `\`${
+                            commands
+                                .filter((cmd) => cmd.category === "fun")
                                 .map((cmd) => cmd.name)
                                 .join("`\n`") || "Aucune commande trouvé"
                         }\``,
