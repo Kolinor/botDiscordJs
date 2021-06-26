@@ -10,7 +10,9 @@
   "author": "Kolinor",
   "license": "ISC",
   "dependencies": {
+    "@fightmegg/riot-api": "0.0.7",
     "discord.js": "^12.5.3",
-    "discordjs-ytdl": "^2.2.0"
+    "discordjs-ytdl": "^2.2.0",
+    "request": "^2.88.2"
   }
 }

@@ -1,12 +1,16 @@
 const Discord = require('discord.js');
-const client = new Discord.Client();
-const configBot = require('./botconfig.json')
+const { RiotAPI, RiotAPITypes, PlatformId } = require('@fightmegg/riot-api');
+const configBot = require('./botconfig.json');
 const fs = require('fs');
+
+const client = new Discord.Client();
+const riotApi = new RiotAPI(configBot.riotApiKey);
 
 client.commands = new Discord.Collection();
 
 const options = {
-   voiceConnection: null
+    voiceConnection: null,
+    riotApi
 };
 
 const commandFiles = fs
