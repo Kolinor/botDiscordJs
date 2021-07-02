@@ -10,7 +10,8 @@ client.commands = new Discord.Collection();
 
 const options = {
     voiceConnection: null,
-    riotApi
+    riotApi,
+    dispatcher: null
 };
 
 const commandFiles = fs
